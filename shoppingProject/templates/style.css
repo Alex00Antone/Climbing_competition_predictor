@@ -80,15 +80,15 @@ button.primary:hover {
 
 .result.error {
   background: #fef2f2;
-  border-left-color: #ef4444;
+  border-left-color: #5362ed;
 }
 
 .feature-card {
-  border: 1px solid #e5e7eb;
+  border: 1px solid #5362ed;
   padding: 14px;
   margin-bottom: 12px;
   border-radius: 8px;
-  background: #fafafa;
+  background: #5362ed;
 }
 .feature-card h3 {
   margin: 0 0 6px;
