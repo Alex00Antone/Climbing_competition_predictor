@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/static/styles.css">
+  <title>TensorFlow Prediction</title>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="/">Home</a>
+  <a href="/sklearn">Sklearn Model</a>
+  <a href="/tensorflow">TensorFlow Model</a>
+</div>
+
+<div class="container">
+  <h1>TensorFlow Model Prediction</h1>
+
+  <form method="POST">
+    <div class="field">
+      <label>Administrative</label>
+      <input type="number" name="Administrative" required>
+    </div>
+
+    <div class="field">
+      <label>Administrative_Duration</label>
+      <input type="number" step="0.1" name="Administrative_Duration" required>
+    </div>
+
+    <div class="field">
+      <label>Informational</label>
+      <input type="number" name="Informational" required>
+    </div>
+
+    <div class="field">
+      <label>Informational_Duration</label>
+      <input type="number" step="0.1" name="Informational_Duration" required>
+    </div>
+
+    <div class="field">
+      <label>Month</label>
+      <select name="Month">
+        <option>Feb</option><option>Mar</option><option>May</option>
+        <option>June</option><option>Jul</option><option>Aug</option>
+        <option>Sep</option><option>Oct</option><option>Nov</option><option>Dec</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>VisitorType</label>
+      <select name="VisitorType">
+        <option>Returning_Visitor</option>
+        <option>New_Visitor</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Weekend?</label>
+      <select name="Weekend">
+        <option value="false">No</option>
+        <option value="true">Yes</option>
+      </select>
+    </div>
+
+    <button class="primary" type="submit">Predict</button>
+  </form>
+
+  {% if prediction %}
+  <div class="result">
+    <p><strong>{{ prediction }}</strong></p>
+    <p>Probability: {{ probability }}%</p>
+  </div>
+  {% endif %}
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Train Model - Titanic Predictor{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2 style="color: #667eea; margin-bottom: 20px; font-size: 2em;">🎯 Train the Model</h2>
+    
+    {% if message %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+    {% else %}
+    <div class="alert alert-info">
+        Click the button below to train a Random Forest classifier on the Titanic dataset.
+        The model will learn patterns from historical data to predict survival outcomes.
+    </div>
+    {% endif %}
+    
+    <div class="info-box" style="margin: 30px 0;">
+        <h3>Training Details</h3>
+        <ul style="line-height: 2; color: #666; padding-left: 20px; margin-top: 10px;">
+            <li>Algorithm: Random Forest Classifier</li>
+            <li>Dataset: Titanic passengers (Age, Sex, Embarked, Survived)</li>
+            <li>Features: One-hot encoded categorical variables</li>
+            <li>Training: Fits on historical passenger data</li>
+        </ul>
+    </div>
+    
+    <div style="text-align: center; margin-top: 30px;">
+        <form action="/train" method="GET">
+            <button type="submit" class="btn">🚀 Train Model Now</button>
+        </form>
+        
+        {% if model_exists %}
+        <form action="/wipe" method="GET" style="margin-top: 15px;">
+            <button type="submit" class="btn btn-secondary" onclick="return confirm('Are you sure you want to delete the current model?')">
+                🗑️ Delete Current Model
+            </button>
+        </form>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+

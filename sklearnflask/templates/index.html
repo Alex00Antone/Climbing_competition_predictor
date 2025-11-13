@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <h2 style="color: #667eea; margin-bottom: 20px; font-size: 2em;">Welcome!</h2>
+    
+    {% if model_status %}
+    <div class="alert alert-success">
+        ✓ Model is trained and ready for predictions!
+    </div>
+    {% else %}
+    <div class="alert alert-warning">
+        ⚠️ No model trained yet. Please train the model first.
+    </div>
+    {% endif %}
+    
+    <p style="font-size: 1.1em; color: #666; line-height: 1.8; margin-bottom: 30px;">
+        This application uses machine learning to predict whether a passenger would have survived the Titanic disaster 
+        based on their characteristics like age, sex, and port of embarkation.
+    </p>
+    
+    <div class="grid">
+        <div class="info-box">
+            <h3>📊 Train Model</h3>
+            <p>Train a Random Forest classifier on the Titanic dataset to learn survival patterns.</p>
+        </div>
+        
+        <div class="info-box">
+            <h3>🔮 Predict</h3>
+            <p>Use the trained model to predict survival chances for new passenger data.</p>
+        </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 40px;">
+        {% if model_status %}
+            <a href="/predict-page" class="btn">Start Making Predictions →</a>
+        {% else %}
+            <a href="/train-page" class="btn">Train Model First →</a>
+        {% endif %}
+    </div>
+</div>
+
+<div class="card" style="background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);">
+    <h3 style="color: #667eea; margin-bottom: 15px;">How It Works</h3>
+    <ol style="line-height: 2; color: #666; padding-left: 20px;">
+        <li><strong>Train:</strong> The model learns from historical Titanic passenger data</li>
+        <li><strong>Predict:</strong> Input passenger details to get survival prediction</li>
+        <li><strong>Results:</strong> View the prediction with confidence score</li>
+    </ol>
+</div>
+{% endblock %}
+

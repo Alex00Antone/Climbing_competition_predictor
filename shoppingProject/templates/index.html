@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/static/styles.css">
+  <title>ML Prediction App</title>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="/">Home</a>
+  <a href="/sklearn">Sklearn Model</a>
+  <a href="/tensorflow">TensorFlow Model</a>
+</div>
+
+<div class="container">
+  <h1>Online Shopper Revenue Prediction</h1>
+  <p>
+    This tool predicts whether an online shopping session is likely to result
+    in revenue based on session-level behavioral data.
+  </p>
+
+  <h2>📊 Features Used in the Model</h2>
+
+  <div class="feature-card">
+    <h3>Administrative</h3>
+    <p>Number of administrative pages visited (account settings, profile pages, etc.).</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>Administrative_Duration</h3>
+    <p>Total time spent on administrative sections. Longer duration may indicate confusion or careful account review.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>Informational</h3>
+    <p>Number of informational pages visited (FAQs, policy pages, help docs).</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>Informational_Duration</h3>
+    <p>Total time spent reading informational content, which can indicate purchase intent or uncertainty.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>ProductRelated</h3>
+    <p>Number of product-related pages viewed (product detail pages, comparisons).</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>ProductRelated_Duration</h3>
+    <p>Total time browsing product pages — always strongly correlated with conversion likelihood.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>BounceRates</h3>
+    <p>The percentage of times users land on a page and leave immediately. High bounce rates → lower purchase intent.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>ExitRates</h3>
+    <p>The percentage of times users exit the site from a specific page. High exit rates often signal friction.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>PageValues</h3>
+    <p>An internal measure of how "valuable" each page is empirically based on previous conversions.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>SpecialDay</h3>
+    <p>A number between 0–1 showing how close the session is to a special event like Valentine's Day or Mother's Day.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>Month</h3>
+    <p>The month of the session. Seasonality strongly affects purchase likelihood.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>VisitorType</h3>
+    <p>Whether the user is new, returning, or other. Returning visitors are much more likely to convert.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3>Weekend</h3>
+    <p>Indicates if the session happened on a weekend. Behavior patterns differ by day of week.</p>
+  </div>
+
+  <h2>🔮 Try a Model</h2>
+  <p>Select one of the models above to enter values and generate a prediction.</p>
+</div>
+
+</body>
+</html>
