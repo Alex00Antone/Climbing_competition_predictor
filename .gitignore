@@ -152,3 +152,8 @@ models/
 .venv/
 .basicFlaskEnv/
 .sklearnFlaskEnv/
+
+# Saved models
+models/
+*.keras
+*.pkl
