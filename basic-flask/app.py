@@ -19,19 +19,32 @@ def ValuePredictor(form_dict):
     """
     
     df = pd.DataFrame([form_dict])
-
     
-    for col in df.columns:
-        try:
-            df[col] = df[col].astype(float)
-        except ValueError:
-            pass
+   
+    for col in ['discipline_boulder', 'discipline_lead']:
+        df[col] = df[col].astype(str).str.lower().map({'yes': True, 'no': False})
+    
+    
+    df['gender'] = df['gender'].astype(str).str.lower().str.capitalize() 
+    gender_dummies = pd.get_dummies(df['gender'], prefix='gender')
+    df = pd.concat([df, gender_dummies], axis=1)
+    
+  
+    df['age_at_comp'] = pd.to_numeric(df['age_at_comp'], errors='coerce')
+    df['adult'] = np.where(df['age_at_comp'] >= 19, True, False)
+    
+   
+    df.drop(columns=['country', 'gender'], inplace=True, errors='ignore')
 
+   
+    for col in ['discipline_boulder', 'discipline_lead', 'gender_male', 'gender_female', 'adult']:
+        if col in df.columns:
+            df[col] = df[col].astype(bool) 
+    
     
     pred = predict(model_data, df)
 
-    return int(pred[0])
-
+   
 @app.route("/")
 @app.route("/index")
 def index():
