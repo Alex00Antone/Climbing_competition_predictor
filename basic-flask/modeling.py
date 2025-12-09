@@ -229,7 +229,7 @@ def train_model(df):
 
     return model_data, X_test_scaled, y_test, score, cm, cr
 
-def test_model(model_data: Dict[str, Any], X_test: pd.DataFrame, y_test: pd.Series):
+def test_model(model_data, X_test, y_test):
     """
     Evaluate a loaded/trained model_data (dict returning from train_model).
     Prints and returns score, confusion matrix, classification report.
