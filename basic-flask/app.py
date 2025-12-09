@@ -51,7 +51,10 @@ def ValuePredictor(form_dict):
         if col not in df.columns:
 
             df[col] = 0
-   
+    for col in ['season', 'athlete_id', 'event_id', 'd_cat']:
+        
+        df[col] = pd.to_numeric(df.get(col, 0), errors='coerce').fillna(0).astype(int)
+
     df['country_encoded'] = 0 
     
 
@@ -62,6 +65,10 @@ def ValuePredictor(form_dict):
             df[col] = df[col].astype(int)
         else:
             df[col] = 0 
+
+    
+
+
     pred = predict(model_data, df)
 
    
