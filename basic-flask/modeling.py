@@ -291,8 +291,8 @@ def load_model(path):
 
 
 def main():
-    df = load_data("data/merged_results_info.csv")
-    
+    df = load_data("output.csv")
+
     model_data, X_test, y_test, score, cm, cr = train_model(df)
 
     print("Training complete.")
@@ -302,10 +302,10 @@ def main():
     print("Classification report:")
     print(cr)
 
-    # Save model_data
+    
     save_model(model_data, "models/weighted_xgb_model.pkl")
 
-    # Example test invocation
+    
     test_model(model_data, X_test, y_test)
 
     return model_data
