@@ -273,9 +273,6 @@ def predict(model_data, X):
     preds = model.predict(X)
     return np.array(preds)
 
-def predict(model, X_test):
-    return model.predict(X_test)
-
 def save_model(model, path):
 
 
