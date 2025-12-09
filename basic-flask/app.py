@@ -8,7 +8,7 @@ from modeling import predict
 app = Flask(__name__)
 
 
-MODEL_PATH = "data/model.pkl"
+MODEL_PATH = "data/model1.pkl1"
 
 try:
     with open(MODEL_PATH, "rb") as f:
